@@ -38,14 +38,6 @@ const products = [
 export default function Example() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
       <main className="lg:flex lg:min-h-full lg:flex-row-reverse lg:overflow-hidden">
         <div className="px-4 py-6 sm:px-6 lg:hidden">
           <div className="mx-auto flex max-w-lg">

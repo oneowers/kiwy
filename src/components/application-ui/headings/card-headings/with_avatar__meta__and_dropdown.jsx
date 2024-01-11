@@ -28,7 +28,7 @@ const { id: productId } = useParams();
 
 const [reviews, setRewiews] = useState(null);
 useEffect(() => {
-const apiUrl = `http://127.0.0.1:8000/api/reviews/`;
+const apiUrl = `https://wauu.uz/api/reviews/`;
 
 fetch(apiUrl)
 .then((response) => {

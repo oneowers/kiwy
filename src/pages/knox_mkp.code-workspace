@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "knox_mkp",
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

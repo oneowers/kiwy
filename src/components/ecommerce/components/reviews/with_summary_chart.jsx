@@ -22,7 +22,7 @@ export default function Example() {
   const { id: productId } = useParams();
   const [reviews, setRewiews] = useState(null);
   useEffect(() => {
-  const apiUrl = `http://127.0.0.1:8000/api/reviews/?product=` + productId;
+    const apiUrl = `https://wauu.uz/api/product/${productId}/`;
   
   fetch(apiUrl)
   .then((response) => {
@@ -125,11 +125,11 @@ export default function Example() {
 
           <div className="flow-root">
             <div className="-my-12 divide-y divide-gray-200">
-              {reviews.map((review) => (
+              {reviews.reviews.map((review) => (
                 <div key={review.id} className="py-12">
                   <div className="flex items-center">
                     <div className="">
-                      <h4 className="text-sm font-bold text-gray-900">{review.name}</h4>
+                      <h4 className="text-sm font-bold text-gray-900">{review.user}</h4>
                       <div className="mt-1 flex items-center">
                         {[0, 1, 2, 3, 4].map((rating) => (
                           <StarIcon
@@ -151,8 +151,10 @@ export default function Example() {
                     dangerouslySetInnerHTML={{ __html: review.info }}
                   />
                   
-                  <div className="mt-4">
-                    <img src={review.image} alt={`${review.name}.`} className="h-45 w-24 rounded" />
+                  <div className="mt-4 grid grid-cols-7">
+                    {review.images.map((img) => (
+                    <img src={img.low} alt={`${review.name}.`} className="h-20 w-20 rounded object-cover" />
+                    ))}
                   </div>
                 </div>
               ))}

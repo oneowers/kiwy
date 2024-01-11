@@ -1,19 +1,31 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import React, {Fragment, useState, useEffect} from 'react'
+import {Dialog, Disclosure, Menu, Transition} from '@headlessui/react'
+import {XMarkIcon} from '@heroicons/react/24/outline'
+import Cookies from 'js-cookie';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import CategoryTabs from './categoryTabs.jsx'
+import Products from './products.jsx'
+import ProductsByCategory from './productsByCategory.jsx'
 
+import Cards from './Cards.jsx';
+import Footer from '../components/marketing/sections/footers/4_column_with_company_mission.jsx';
+import Header from './header/index.jsx';
+  import Carusel from './carusel.jsx';
 
-import Filters from '../components/ecommerce/components/category-filters/with_inline_actions_and_expandable_sidebar_filters.jsx';
-import Cards from '../components/Cards.jsx';
-import Cards1 from '../components/ecommerce/components/product-lists/with_border_grid.jsx'
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+  }
 
 function HomePage() {
   return (
     <>
-        <Routes>
-            <Route element={<Filters />}>
-                <Route index element={<Cards1 />} />
-            </Route>
-        </Routes>
+        <Header/>
+          <Carusel/>
+          <ProductsByCategory category_id={1}/>
+          <ProductsByCategory category_id={2}/>
+        <Footer/>
     </>
   );
 }
