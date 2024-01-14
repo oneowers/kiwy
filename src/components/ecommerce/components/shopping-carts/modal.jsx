@@ -16,7 +16,7 @@ useEffect(() => {
 
     if (cookieValue !== undefined) {
 
-        const apiUrl = `https://wauu.uz/api/user/` + cookieValue + "/cartitems/";
+        const apiUrl = `http://wauu.uz/api/user/` + cookieValue + "/cartitems/";
 
         fetch(apiUrl)
             .then((response) => {

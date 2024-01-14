@@ -12,7 +12,7 @@ export default function Example({style}) {
     const [subCategories, setSubCategories] = useState(false)
 
     useEffect(() => {
-    const apiUrl = `https://wauu.uz/api/parent_categories/`;
+    const apiUrl = `http://wauu.uz/api/parent_categories/`;
     
     fetch(apiUrl)
     .then((response) => {
@@ -38,7 +38,11 @@ export default function Example({style}) {
 
     if (!subCategories ) {
         return (
-            <Skeleton className='mx-auto flex h-10 w-full items-center justify-between px-4 sm:px-6 lg:px-8' />
+            <>
+            <div className='animate-pulse m-3 justify-center bg-gray-200  h-7 rounded-lg items-center px-4 sm:px-6 lg:px-8'></div>
+            <div className='animate-pulse m-3 justify-center bg-gray-200  h-7 rounded-lg items-center px-4 sm:px-6 lg:px-8'></div>
+            <div className='animate-pulse m-3 justify-center bg-gray-200  h-7 rounded-lg items-center px-4 sm:px-6 lg:px-8'></div>
+            </ >
         );
     }
   

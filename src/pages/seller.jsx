@@ -20,7 +20,7 @@ function HomePage() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `https://wauu.uz/api/seller/${sellerId}/`;
+    const apiUrl = `http://wauu.uz/api/seller/${sellerId}/`;
 
     // Fetch the data from the API
     fetch(apiUrl)
@@ -41,7 +41,7 @@ function HomePage() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `https://wauu.uz/api/products/?seller=${sellerId}`;
+    const apiUrl = `http://wauu.uz/api/products/?seller=${sellerId}`;
 
     // Fetch the data from the API
     fetch(apiUrl)

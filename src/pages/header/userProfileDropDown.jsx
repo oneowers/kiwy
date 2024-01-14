@@ -15,7 +15,7 @@ useEffect(() => {
 
     if (cookieValue !== undefined) {
 
-        const apiUrl = `https://wauu.uz/api/user/` + cookieValue + "/";
+        const apiUrl = `http://wauu.uz/api/user/` + cookieValue + "/";
 
         fetch(apiUrl)
             .then((response) => {

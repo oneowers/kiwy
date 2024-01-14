@@ -53,7 +53,7 @@ const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
 
 useEffect(() => {
-const apiUrl = 'https://wauu.uz/api/products/?page=1';
+const apiUrl = 'http://wauu.uz/api/products/?page=1';
 
 fetch(apiUrl)
 .then((response) => {

@@ -14,7 +14,7 @@ export default function Example({ style }) {
     }
 
     // Make API call with the search term
-    fetch(`https://wauu.uz/api/products/?name=${searchTerm}`)
+    fetch(`http://wauu.uz/api/products/?name=${searchTerm}`)
       .then((response) => response.json())
       .then((data) => setSearchResults(data))
       .catch((error) => console.error('Error fetching search results:', error));

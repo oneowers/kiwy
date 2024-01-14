@@ -22,7 +22,7 @@ export default function Example() {
   const { id: productId } = useParams();
   const [reviews, setRewiews] = useState(null);
   useEffect(() => {
-    const apiUrl = `https://wauu.uz/api/product/${productId}/`;
+    const apiUrl = `http://wauu.uz/api/product/${productId}/`;
   
   fetch(apiUrl)
   .then((response) => {

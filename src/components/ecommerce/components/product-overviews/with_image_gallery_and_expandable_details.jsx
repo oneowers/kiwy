@@ -16,7 +16,7 @@ function WithImageGalleryAndExpandableDetails() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `https://wauu.uz/api/product/${productId}/`;
+    const apiUrl = `http://wauu.uz/api/product/${productId}/`;
 
     // Fetch the data from the API
     fetch(apiUrl)

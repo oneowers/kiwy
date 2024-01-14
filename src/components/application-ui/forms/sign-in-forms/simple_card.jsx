@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Logo from '../../../../pages/header/kiwy_white.png';
 import { useNavigate } from 'react-router-dom';
 
 export default function Example() {
@@ -42,7 +43,7 @@ export default function Example() {
       password: password,
     };
 
-    fetch('https://wauu.uz/api/login/', {
+    fetch('http://wauu.uz/api/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -95,7 +96,7 @@ export default function Example() {
             <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <img className="mx-auto h-10 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+                        src={Logo} alt="Your Company" />
                     <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Sign in to your account
                     </h2>

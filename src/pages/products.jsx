@@ -37,7 +37,7 @@ export default function Cards({products}){
 return (
 <>
 
-    <div className="mx-auto max-w-7xl overflow-hidden sm:px-3 lg:pb-5">
+    <div className="mx-auto max-w-7xl overflow-hidden lg:pb-5">
         <div className="-mx-px grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-4 space-x-3">
         {products ? products.map((product) => (product.is_published && product.characteristics[0] != null ? (
         <div key={product.id} className="group fade-in hover:shadow-lg rounded-lg duration-150">

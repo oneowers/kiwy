@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 // Change this import
+import Logo from '../../../../pages/header/kiwy_white.png';
 // import { useHistory } from 'react-router-dom';
 
 // To this import
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 
@@ -93,7 +94,7 @@ const handleSubmit = (e) => {
       password: password,
     };
 
-    fetch('https://wauu.uz/api/register/', {
+    fetch('http://wauu.uz/api/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -167,7 +168,7 @@ const handleSubmit = (e) => {
             <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <img className="mx-auto h-10 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+                        src={Logo} alt="Your Company" />
                     <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Sign in to your account
                     </h2>
@@ -251,9 +252,9 @@ const handleSubmit = (e) => {
                                 </div>
 
                                 <div className="text-sm leading-6">
-                                    <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                                    <Link to="/login" className="font-semibold text-indigo-600 hover:text-indigo-500">
                                         Have an account?
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
 

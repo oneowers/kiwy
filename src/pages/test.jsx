@@ -31,7 +31,7 @@ const addToCart = async (product_id, characteristicId, quantity) => {
     // setToastOpen(true);
 
     try {
-      const response = await fetch(`https://wauu.uz/api/user/${userId}/add-to-cart/${product_id}/`, {
+      const response = await fetch(`http://wauu.uz/api/user/${userId}/add-to-cart/${product_id}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

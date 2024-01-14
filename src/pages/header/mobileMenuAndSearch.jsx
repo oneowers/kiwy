@@ -17,7 +17,7 @@ const cookieValue = Cookies.get('user_id');
 
 const [subCategories, setCategories] = useState(false)
 useEffect(() => {
-const apiUrl = `https://wauu.uz/api/categories/`;
+const apiUrl = `http://wauu.uz/api/categories/`;
 
 fetch(apiUrl)
 .then((response) => {
@@ -32,11 +32,6 @@ console.error('!!! Ошибка');
 });
 }, []);
 
-
-if (!subCategories) {
-return
-<Skeleton className='mx-auto flex h-10 w-full items-center justify-between px-4 sm:px-6 lg:px-8' />;
-}
 
 
 return (
@@ -101,7 +96,8 @@ return (
 
                         <div className="flex flex-1 items-center lg:hidden">
 
-                            <MenuBar />
+
+                            {subCategories && (<MenuBar />)}
 
                             {/* Search */}
                             <SearchDefaultMenu style="small" />

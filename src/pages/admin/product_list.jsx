@@ -30,7 +30,7 @@ export default function Example() {
     const [loading, setLoading] = useState(true);
     const [isDeleting, setDeleting] = useState(false);
     const handleUpdateProduct = (productId) => {
-        fetch(`https://wauu.uz/api/product/${productId}/`, {
+        fetch(`http://wauu.uz/api/product/${productId}/`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export default function Example() {
     const handleDelete = (item_id) => {
         setDeleting(true);
 
-        fetch(`https://wauu.uz/api/product/${item_id}`, {
+        fetch(`http://wauu.uz/api/product/${item_id}`, {
             method: 'DELETE',
         })
             .then((response) => {
@@ -99,7 +99,7 @@ export default function Example() {
 
 
     useEffect(() => {
-        const apiUrl = 'https://wauu.uz/api/products/?page=1';
+        const apiUrl = 'http://wauu.uz/api/products/?page=1';
 
         fetch(apiUrl)
             .then((response) => {

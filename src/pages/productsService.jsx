@@ -1,7 +1,7 @@
 // productsService.js
 class ProductsService {
     constructor(categoryId) {
-      this.apiUrl = `https://wauu.uz/api/products/?category_id=${categoryId}`;
+      this.apiUrl = `http://wauu.uz/api/products/?category_id=${categoryId}`;
       this.products = null;
     }
   
