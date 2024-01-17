@@ -53,7 +53,7 @@ const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
 
 useEffect(() => {
-const apiUrl = 'http://wauu.uz/api/products/?page=1';
+const apiUrl = process.env.REACT_APP_API_BASE_URL + '/api/products/?page=1';
 
 fetch(apiUrl)
 .then((response) => {

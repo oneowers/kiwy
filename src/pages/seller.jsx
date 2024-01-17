@@ -20,7 +20,7 @@ function HomePage() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `http://wauu.uz/api/seller/${sellerId}/`;
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/seller/${sellerId}/`;
 
     // Fetch the data from the API
     fetch(apiUrl)
@@ -41,7 +41,7 @@ function HomePage() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `http://wauu.uz/api/products/?seller=${sellerId}`;
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/products/?seller=${sellerId}`;
 
     // Fetch the data from the API
     fetch(apiUrl)

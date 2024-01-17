@@ -1,7 +1,7 @@
 // productsService.js
 class ProductsService {
     constructor(categoryId) {
-      this.apiUrl = `http://wauu.uz/api/products/?category_id=${categoryId}`;
+      this.apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/products/?category_id=${categoryId}`;
       this.products = null;
     }
   

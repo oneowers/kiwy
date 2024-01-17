@@ -37,57 +37,57 @@ export default function Cards({products}){
 return (
 <>
 
-    <div className="mx-auto max-w-7xl overflow-hidden lg:pb-5">
-        <div className="-mx-px grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-4 space-x-3">
+    <div className="overflow-hidden lg:pb-5">
+        <div className="-mx-px grid grid-cols-2 sm:mx-0 md:grid-cols-4 lg:grid-cols-5 space-x-3">
         {products ? products.map((product) => (product.is_published && product.characteristics[0] != null ? (
-        <div key={product.id} className="group fade-in hover:shadow-lg rounded-lg duration-150">
-            <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg hover:rounded-b-none  bg-gray-200
-                            ">
+        <div key={product.id} className="relative group fade-in hover:shadow-lg rounded-lg duration-150 mb-4">
+            <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg hover:rounded-b-none  bg-gray-200">
                 <Link to={"/product/" + product.id}>
                     {product.characteristics[0].images.length != 0 ? (
                 <img src={product.characteristics[0].images[0].middle} className=" fade-in duration-150 hover:scale-105  w-full h-64 object-cover bg-center" />):
                 (<div className="animate-pulse bg-gray-200 w-full h-64"></div>)}
                 </Link>
             </div>
-            <div className="px-3 pb-4 pt-5">
-                <h3 className="text-base text-gray-900">
+            <div className="px-3 pb-4 pt-3 h-44">
+                <h3 className="text-sm/6 font-light text-gray-900">
                     <Link to={"/product/" + product.id}>
-                    {product.name}
+                    <div className=''>{product.name}</div>
                     <span className="placeholder col-6"></span>
                     </Link>
                 </h3>
 
                 <h4 className={classNames(
-                    Cookies.get('user_id') != product.seller.user || true ? "text-sm text-blue-800" : "text-sm text-white bg-blue-800"
+                    Cookies.get('user_id') != product.seller.user || true ? "text-sm/6 font-light text-blue-800" : "text-sm/6 font-light text-white bg-blue-800"
                     )
                     } >
                     <Link to={"/seller/" + product.seller.id}>
                     {product.seller.store_name}
                     </Link>
                 </h4>
-                <div className="flex items-center mt-2">
+                
+                {product.rating  && (<div className="flex items-center mt-1">
                     <StarIcon className={'text-yellow-400 h-4 w-4 flex-shrink-0'} aria-hidden="true" />
-                    <p className="ml-1 text-sm text-gray-500">{product.rating} out
+                    <p className="ml-1 text-xs font-light text-gray-500">{product.rating} out
                         of 5 stars</p>
-                </div>
+                </div>)}
 
-                <div className="mt-2">
-                    <div className="flex flex-wrap items-center justify-between">
+                <div>
+                    <div className="absolute w-full bottom-0 flex flex-wrap items-center justify-between py-4">
                         <div>
                             {product.characteristics[0].discount_price != 0 ? (
                             <>
-                                <del className="mt-1 text-sm text-gray-400 ">{formatPrice(product.characteristics[0].price)}
+                                <del className="mt-1 text-xs font-light text-gray-400 ">{formatPrice(product.characteristics[0].price)}
                                     сум
                                 </del>
-                                <h4 className="text-lg text-lg font-bold text-gray-700 ">
+                                <h4 className="text-md  font-medium text-gray-700 ">
                                     {formatPrice(product.characteristics[0].discount_price)} сум</h4>
                             </>
                             ) : (
-                            <h4 className="text-lg text-lg font-bold text-gray-700 ">
+                            <h4 className="text-md font-medium text-gray-700 ">
                                 {formatPrice(product.characteristics[0].price)} сум</h4>
                             )}
                         </div>
-                        <div className="ml-4 flex-shrink-0">
+                        <div className='absolute right-3 bottom-0 m-4 '>
                             <Modal product={product.characteristics} product_id={product.id} />
                         </div>
                     </div>
@@ -99,7 +99,7 @@ return (
         )
         )
         ) : (
-            [1, 2, 3, 4].map(() => (
+            [1, 2, 3, 4, 5].map(() => (
                 <div className="aspect-h-1 m-2 aspect-w-1 overflow-hidden rounded-lg group-hover:opacity-90">
                     <div className=" animate-pulse h-96 w-full bg-gray-200"></div>
                 </div>

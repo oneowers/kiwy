@@ -17,7 +17,7 @@ const cookieValue = Cookies.get('user_id');
 
 const [subCategories, setCategories] = useState(false)
 useEffect(() => {
-const apiUrl = `http://wauu.uz/api/categories/`;
+const apiUrl = `http://localhost:3000/api/categories/`;
 
 fetch(apiUrl)
 .then((response) => {
@@ -39,12 +39,9 @@ return (
 
     <header className="relative">
         <nav aria-label="Top">
-
-            {/* Top navigation */}
-
-            {cookieValue == undefined ? (
+            {cookieValue == undefined && (
             <div className="bg-indigo-900">
-                <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl lg:px-4 flex h-10  items-center justify-between">
                     {/* Currency selector */}
                     <form className="hidden lg:block lg:flex-1">
                         <div className="flex">
@@ -80,13 +77,11 @@ return (
                     </div>
                 </div>
             </div>
-            ) : (
-            <></>
             )}
 
             {/* Secondary navigation */}
             <div className="bg-white mt-1">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl lg:px-4">
                     <div className="flex h-12 items-center justify-between">
                         <CompanyLogo style="small" />
 
@@ -107,12 +102,12 @@ return (
                         <CompanyLogo style="large" />
 
                         <div className="flex flex-1 items-center justify-end">
-                            <div className="flex items-center lg:ml-8">
-                                <div className="flex space-x-8">
+                            <div className="flex items-center mt-2 mr-2">
+                                <div className="flex">
                                     <SearchDefaultMenu style="large" />
                                     <UserProfileDropDown />
                                 </div>
-                                <span className="mx-4 h-6 w-px bg-gray-200 lg:mx-6" aria-hidden="true" />
+                                <span className="mx-6 h-6 w-px bg-gray-200 lg:ml-3" aria-hidden="true" />
                                 <Order />
                             </div>
                         </div>

@@ -14,7 +14,7 @@ export default function Example({ style }) {
     }
 
     // Make API call with the search term
-    fetch(`http://wauu.uz/api/products/?name=${searchTerm}`)
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/api/products/?name=${searchTerm}`)
       .then((response) => response.json())
       .then((data) => setSearchResults(data))
       .catch((error) => console.error('Error fetching search results:', error));

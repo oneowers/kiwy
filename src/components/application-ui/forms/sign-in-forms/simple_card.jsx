@@ -43,7 +43,7 @@ export default function Example() {
       password: password,
     };
 
-    fetch('http://wauu.uz/api/login/', {
+    fetch(process.env.REACT_APP_API_BASE_URL + '/api/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

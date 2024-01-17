@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import React, { Fragment, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, ShoppingBagIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
@@ -31,7 +31,7 @@ const addToCart = async (product_id, characteristicId, quantity) => {
     // setToastOpen(true);
 
     try {
-      const response = await fetch(`http://wauu.uz/api/user/${userId}/add-to-cart/${product_id}/`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/user/${userId}/add-to-cart/${product_id}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const addToCart = async (product_id, characteristicId, quantity) => {
           className="right-0 bottom-0 w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-900 hover:bg-gray-100"
           onClick={() => setOpen(true)}
         >
-          <i className="fa fa-shopping-cart text-gray-600" aria-hidden="true"></i>
+          <ShoppingBagIcon className="h-5 w-5 text-gray-600" aria-hidden="true" />
         </button>
       </div>
 

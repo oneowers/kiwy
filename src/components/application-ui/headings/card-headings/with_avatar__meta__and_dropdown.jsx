@@ -28,7 +28,7 @@ const { id: productId } = useParams();
 
 const [reviews, setRewiews] = useState(null);
 useEffect(() => {
-const apiUrl = `http://wauu.uz/api/reviews/`;
+const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/reviews/`;
 
 fetch(apiUrl)
 .then((response) => {

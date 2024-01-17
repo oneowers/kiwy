@@ -29,7 +29,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-      const apiUrl = `http://wauu.uz/api/categories/`;
+      const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/categories/`;
 
       fetch(apiUrl)
           .then((response) => {
@@ -70,8 +70,8 @@ export default function HomePage() {
 // Updated fetchProducts
 const fetchProducts = (categoryId) => {
 const apiUrl = categoryId
-  ? `http://wauu.uz/api/products/?category_id=${categoryId}`
-  : 'http://wauu.uz/api/products/';
+  ? `${process.env.REACT_APP_API_BASE_URL}/api/products/?category_id=${categoryId}`
+  : process.env.REACT_APP_API_BASE_URL + '/api/products/';
 
 fetch(apiUrl)
   .then((response) => {
@@ -94,9 +94,9 @@ fetch(apiUrl)
   useEffect(() => {
     const apiUrl = decodedData != null
     ? 
-      decodedData.category_id ? `http://wauu.uz/api/products/?category_id=${decodedData.category_id}`
-      : `http://wauu.uz/api/products/?category_id=${decodedData.parent_category_id}`
-        : 'http://wauu.uz/api/products/';
+      decodedData.category_id ? `${process.env.REACT_APP_API_BASE_URL}/api/products/?category_id=${decodedData.category_id}`
+      : `${process.env.REACT_APP_API_BASE_URL}/api/products/?category_id=${decodedData.parent_category_id}`
+        : process.env.REACT_APP_API_BASE_URL + '/api/products/';
   
   
     fetch(apiUrl)

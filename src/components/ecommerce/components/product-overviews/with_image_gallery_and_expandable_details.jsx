@@ -16,7 +16,7 @@ function WithImageGalleryAndExpandableDetails() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `http://wauu.uz/api/product/${productId}/`;
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/product/${productId}/`;
 
     // Fetch the data from the API
     fetch(apiUrl)
@@ -38,10 +38,10 @@ function WithImageGalleryAndExpandableDetails() {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-0 py-8 lg:max-w-7xl">
 
         {product && selectedColor && selectedColor[0] != null && selectedColor[0].images != null ?(
-        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+        <div className="lg:grid lg:grid-cols-3 lg:items-start lg:gap-x-5">
           <Tab.Group as="div" className="flex flex-col-reverse">
             {/* Image selector */}
             <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
@@ -111,7 +111,7 @@ function WithImageGalleryAndExpandableDetails() {
                     <img
                       src={img.original}
                       alt={img.original}
-                      className="h-full w-full object-cover object-center sm:rounded-lg"
+                      className=" h-fit w-full object-cover object-center sm:rounded-lg"
                     />
                   </Tab.Panel>
                 ))
@@ -119,13 +119,13 @@ function WithImageGalleryAndExpandableDetails() {
             </Tab.Panels>
           </Tab.Group>
 
-          <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
+          <div className="mt-10 px-4 sm:mt-16 lg:col-span-2 lg:ml-20 sm:px-0 lg:mt-0">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">
               {product.name}
             </h1>
             
-            <a href={`https://localhost:3000/seller/` + product.seller} className="tracking-tight text-blue-900">
-              {product.seller_name}
+            <a href={`https://localhost:3000/seller/` + product.seller.id} className="tracking-tight text-blue-900">
+              {product.seller.store_name}
             </a>
 
             <div className="mt-3">
@@ -220,7 +220,7 @@ function WithImageGalleryAndExpandableDetails() {
         </div>
         ):
         (
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+          <div className="lg:grid lg:grid-cols-2  lg:items-start lg:gap-x-8">
           <Tab.Group as="div" className="flex flex-col-reverse">
             {/* Image selector */}
             <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">

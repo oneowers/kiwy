@@ -12,7 +12,7 @@ export default function Example({style}) {
     const [subCategories, setSubCategories] = useState(false)
 
     useEffect(() => {
-    const apiUrl = `http://wauu.uz/api/parent_categories/`;
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/parent_categories/`;
     
     fetch(apiUrl)
     .then((response) => {
@@ -54,15 +54,15 @@ export default function Example({style}) {
 
 return (
 <Popover.Group className="ml-8">
-    <div className="flex h-full justify-center space-x-3">
+    <div className="flex h-full justify-center space-x-3 mt-1">
         {subCategories.map((category, categoryIdx) => (
         <Popover key={category.name} className="flex">
             {({open}) => (
             <>
                 <div className="relative flex py-2">
-                    <Popover.Button className={classNames( open ? 'bg-indigo-700 text-white font-medium'
-                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200 hover:text-gray-700'
-                        , 'focus:outline-none px-6 text-sm rounded-md cursor-pointer relative  flex items-center text-sm font-medium transition-colors duration-200 ease-out'
+                    <Popover.Button className={classNames( open ? ' bg-indigo-700 text-white font-medium'
+                        : 'bg-gray-100 text-indigo-800 hover:bg-indigo-100'
+                        , 'focus:outline-none px-6 text-sm  rounded-md cursor-pointer relative  flex items-center text-sm font-medium transition-colors duration-200 ease-out'
                         )}>
                         {category.name}
                     </Popover.Button>

@@ -92,7 +92,7 @@ export default function Example() {
 
         if (cookieValue !== undefined) {
 
-            const apiUrl = `http://wauu.uz/api/user/` + cookieValue;
+            const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/user/` + cookieValue;
 
             fetch(apiUrl)
                 .then((response) => {
@@ -111,7 +111,7 @@ export default function Example() {
 
 
     useEffect(() => {
-        const apiUrl = `http://wauu.uz/api/categories/`;
+        const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/categories/`;
 
         fetch(apiUrl)
             .then((response) => {

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react'
 import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+
+import caruselImage1 from'./car1.jpg';
+import caruselImage2 from'./car2.jpg';
 
 const Carousel = () => {
   const settings = {
@@ -16,29 +20,35 @@ const Carousel = () => {
     pauseOnHover: true,
   };
 
-  const slides = [
-    {
-      "link": "https://uzum.uz/pepsi",
-      "image": "https://images.uzum.uz/cm5fhf1s99ouqbfosb4g/main_page_banner.jpg",
-      "alt": "Акции, подборки товаров и новости Uzum"
-    },
-    {
-      "link": "https://uzum.uz/ru/category/smartfony-12690",
-      "image": "https://images.uzum.uz/cm56qt1s99ouqbfoq3g0/main_page_banner.jpg",
-      "alt": "Акции, подборки товаров и новости Uzum"
-    },
-    // Add more objects for each slide
-  ]
+  const [slides, setSlides] = useState(null);
+  
+  useEffect(() => {
+    const apiUrl = process.env.REACT_APP_API_BASE_URL + '/api/banners/';
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setSlides(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching product:', error);
+      });
+  }, []);
   
 
   return (
-    <Slider {...settings} className="z-0 mx-auto max-w-7xl px-3 mt-4 overflow-hidden rounded-lg">
-      {slides.map((slide, index) => (
+    <Slider {...settings} className="z-0 mx-auto max-w-7xl lg:px-4 mt-3 overflow-hidden rounded-lg">
+      {slides?.map((slide, index) => (
         <div key={index} className="relative max-h-md">
           <a href={slide.link} className="block w-full h-full">
             <img
               src={slide.image}
-              alt={slide.alt}
+              alt={slide.name}
               className="object-cover w-full h-full rounded-lg"
             />
           </a>

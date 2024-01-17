@@ -26,7 +26,7 @@ export default function Example() {
 
     try {
       // Отправляем данные на сервер
-      const response = await axios.post('http://wauu.uz/api/products/', {
+      const response = await axios.post(process.env.REACT_APP_API_BASE_URL + '/api/products/', {
         name: productName,
         price: parseFloat(productPrice), // Преобразуем в число, если необходимо
       });
@@ -56,7 +56,7 @@ export default function Example() {
   
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `http://wauu.uz/api/parent_categories/`;
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/parent_categories/`;
 
     // Fetch the data from the API
     fetch(apiUrl)

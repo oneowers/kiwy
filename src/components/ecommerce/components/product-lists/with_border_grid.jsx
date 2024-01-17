@@ -30,7 +30,7 @@ const ProductList = ({}) => {
 
 
     useEffect(() => {
-        const apiUrl = `http://wauu.uz/api/products`;
+        const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/products`;
 
         fetch(apiUrl)
             .then((response) => {
@@ -54,7 +54,7 @@ const ProductList = ({}) => {
 
         if (user_id !== undefined) {
         try {
-          const response = await axios.post(`http://wauu.uz/api/user/${user_id}/cartitems/`, {
+          const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/user/${user_id}/cartitems/`, {
             quantity: 1,
             product: {id: product_id}   ,
           });
